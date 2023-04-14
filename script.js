@@ -1,36 +1,48 @@
-// tabs
-function openTab(evt, tabname) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", ""); //não entendi
-    }
-    document.getElementById(tabname).style.display = "block";
-    evt.currentTarget.className += " active";
+// Tabs
+function openTab(event, tabName) {
+  const tabContents = document.getElementsByClassName("tabcontent");
+  for (let i = 0; i < tabContents.length; i++) {
+  tabContents[i].style.display = "none";
+  }
+  
+  const tabLinks = document.getElementsByClassName("tablinks");
+  for (let i = 0; i < tabLinks.length; i++) {
+  tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+  }
+  
+  event.currentTarget.className += " active";
+  document.getElementById(tabName).style.display = "block";
+  
+  // Add "active" class to the clicked button
+  event.currentTarget.classList.add("active");
+  
+  // Remove "active" class from the other buttons
+  const activeTabs = document.querySelectorAll(".tab button.active");
+  for (let i = 0; i < activeTabs.length; i++) {
+  if (activeTabs[i] !== event.currentTarget) {
+  activeTabs[i].classList.remove("active");
+  }
+  }
   }
   
   document.getElementById("defaultOpen").click();
   
-  // nametitle (first tab animation)
-  var textWrapper = document.querySelector('.nametitle');
-  textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>"); //não entendi
+  // Nametitle (First tab animation)
+  const textWrapper = document.querySelector('.nametitle');
+  textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
   
-  anime.timeline({loop: false})
-    .add({
-      targets: '.nametitle .letter',
-      opacity: [0,1],
-      easing: "easeInOutQuad",
-      duration: 2350,
-      delay: (el, i) => 350 * (i+1)
-    }).add({
-      targets: '.nametitle'
-    });
-  
-  
-  
-  
-  
+  anime.timeline({ loop: false })
+  .add({
+  targets: '.nametitle .letter',
+  opacity: [0, 1],
+  easing: "easeInOutQuad",
+  duration: 2350,
+  delay: (el, i) => 350 * (i + 1)
+  }).add({
+  targets: '.nametitle'
+  });
+
+// Email form
+document.querySelector("form").addEventListener("submit", function() {
+  document.querySelector("#mensagem-enviada").style.display = "block";
+});
