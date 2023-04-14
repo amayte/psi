@@ -73,7 +73,7 @@ body {
   border-radius: 8px;
   transition: 0.3s ease-in-out;
   position: absolute;
-  left: 0;
+  left: 29.5%;
   top: 1.8rem;
   transform: translateX(-50%);
 }
