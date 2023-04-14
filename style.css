@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Fjalla+One&family=Nunito&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Fjalla+One&family=Nunito&display=swap");
 
 /* Background */
 body {
@@ -6,100 +6,106 @@ body {
   background-size: cover;
   min-width: 100%;
   min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 /* Container */
 .container {
   background: rgba(0, 60, 0, 0.1);
   border-radius: 6px;
-  margin: 40px auto;
   max-width: 90%;
   width: 600px;
   height: auto;
+  transition: height 0.6 ease-out;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Tabs */
 .tab {
-  display: flex;
-  justify-content: space-between;
-  overflow: hidden;
   border: none;
   background-color: none;
   text-align: center;
-  width: 100%;
   float: none;
-  display: inline-block;
+  position: relative;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  width: 100%;
+  margin: 10px 0;
 }
 
-.tab button {
+.tab a {
+  width: 100%;
   background-color: transparent;
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 10px;
   transition: 0.3s;
   font-size: 18px;
   color: #686868;
-  font-family: 'Fjalla One', sans-serif;
+  font-family: "Fjalla One", sans-serif;
+  text-decoration: none;
+}
+.one {
+  text-align: end;
+}
+.three {
+  text-align: start;
 }
 
-.tab button:hover {
+.tab a:hover {
   opacity: 0.8;
 }
 
 /* Tab animation */
-.tab hr {
-  height: .25rem;
-  width: 5%;
+.tab::before {
+  content: "";
+  height: 0.25rem;
+  width: 2rem;
   margin-top: -5px;
   margin-left: 0;
   background: rgb(158, 147, 188);
   border: none;
   border-radius: 8px;
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
   position: absolute;
-  left: 0;
+  left: 29.5%;
+  top: 1.8rem;
   transform: translateX(-50%);
 }
 
 /* Active tab animation */
-.tab .one.active ~ hr {
-  left: 31%;
+.tab.about::before {
+  left: 29.5%;
 }
 
-.tab .two.active ~ hr {
-  left: 42.5%;
+.tab.values::before {
+  left: 49%;
 }
 
-.tab .three.active ~ hr {
-  left: 55.5%;
+.tab.contact::before {
+  left: 70%;
 }
 
 @media only screen and (max-width: 600px) {
+  body {
+    overflow-y: auto;
+  }
   /* Tab animation for small screens */
-  .tab .one:hover ~ hr {
-    left: 20%;
+  .tab.about::before {
+    left: 28%;
   }
 
-  .tab .two:hover ~ hr {
+  .tab.values::before {
     left: 50%;
   }
 
-  .tab .three:hover ~ hr {
-    left: 80%;
-  }
-
-  /* Active tab animation for small screens */
-  .tab .one.active ~ hr {
-    left: 20%;
-  }
-
-  .tab .two.active ~ hr {
-    left: 50%;
-  }
-
-  .tab .three.active ~ hr {
-    left: 80%;
+  .tab.contact::before {
+    left: 73%;
   }
 }
 
@@ -109,7 +115,7 @@ body {
   padding: 20px 40px;
   border: none;
   color: #505050;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 16px;
   text-align: justify;
 }
@@ -118,7 +124,7 @@ body {
 .nametitle {
   font-weight: 900;
   font-size: 2.1em;
-  font-family: 'Dancing Script', cursive;
+  font-family: "Dancing Script", cursive;
 }
 
 .lotus {
@@ -143,19 +149,19 @@ body {
 .icon:hover {
   opacity: 0.8;
 }
-  
+
 /* Second tab content */
 .val-container {
   border: 2px solid rgba(248, 249, 210, 0.4);
   background-color: rgba(248, 249, 210, 0.3);
   border-radius: 6px;
   padding: 20px;
-  }
-  
+}
+
 /* Third tab content */
-  input[type=text],
-  select,
-  textarea {
+input[type="text"],
+select,
+textarea {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -163,18 +169,18 @@ body {
   box-sizing: border-box;
   resize: vertical;
   outline: none;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 14px;
   color: #505050;
-  }
-  
-  label {
+}
+
+label {
   padding: 12px 12px 12px 0;
   display: inline-block;
   outline: none;
-  }
-  
-  input[type=submit] {
+}
+
+input[type="submit"] {
   background-color: rgb(201, 147, 188);
   color: white;
   padding: 12px 20px;
@@ -182,42 +188,42 @@ body {
   border-radius: 4px;
   cursor: pointer;
   float: right;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 14px;
-  }
-  
-  input[type=submit]:hover {
+}
+
+input[type="submit"]:hover {
   opacity: 0.8;
-  }
-  
-  .form-container {
+}
+
+.form-container {
   padding: 10px;
-  }
-  
-  .col-25 {
+}
+
+.col-25 {
   float: left;
   width: 25%;
   margin-top: 6px;
-  }
-  
-  .col-75 {
+}
+
+.col-75 {
   float: left;
   width: 75%;
   margin-top: 6px;
-  }
-  
-  .row:after {
+}
+
+.row:after {
   content: "";
   display: table;
   clear: both;
-  }
-  
-  /* Responsive layout - less than 600px */
-  @media screen and (max-width: 600px) {
+}
+
+/* Responsive layout - less than 600px */
+@media screen and (max-width: 600px) {
   .col-25,
   .col-75,
-  input[type=submit] {
-  width: 100%;
-  margin-top: 0;
+  input[type="submit"] {
+    width: 100%;
+    margin-top: 0;
   }
-  }
+}
