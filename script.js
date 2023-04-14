@@ -41,8 +41,3 @@ function openTab(event, tabName) {
   }).add({
   targets: '.nametitle'
   });
-
-// Email form
-document.querySelector("form").addEventListener("submit", function() {
-  document.querySelector("#mensagem-enviada").style.display = "block";
-});

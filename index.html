@@ -4,13 +4,15 @@
   <title>Maytê M. - Psicóloga</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- favicon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <!-- css -->
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <!-- CSS -->
   <link href="./style.css" rel="stylesheet" type="text/css" />
+  <!-- Email script -->
+  <script src="email.js"></script>
 </head>
 <body>
 <div class="container">
@@ -65,8 +67,8 @@ c-74 13 -83 13 -98 -1 -14 -15 -14 -24 6 -103 59 -237 197 -411 417 -522 167
 	</center>
 	<p>Formada em psicologia pela Universidade Federal de Goiás (UFG), ofereço atendimento exclusivamente online para todo o Brasil e para todas as idades. Além disso, divulgo conteúdo científico no instagram e estou sempre disposta a tirar dúvidas.</p>
 	<center>
-		<a href="http://instagram.com/#"><img class="icon ig" src="https://i.ibb.co/qxcsdrt/instagram.png"></a>
-		<a href="http://wppnumber"><img class="icon wp" src="https://i.ibb.co/r4YLXNc/whatsapp-1.png"></a>
+		<a href="http://instagram.com/#"><img class="icon ig" src="/images/instagram.png"></a>
+		<a href="http://wppnumber"><img class="icon wp" src="/images/whatsapp.png"></a>
 	</center>
 </div>
 <!-- Valores -->
@@ -87,7 +89,6 @@ c-74 13 -83 13 -98 -1 -14 -15 -14 -24 6 -103 59 -237 197 -411 417 -522 167
 <!-- Contato --> 
 <div id="Contato" class="tabcontent">
     <div class="form-container">
-        <form method="post" action="sendEmail.php">
             <div class="form-row">
                 <div class="form-col-25">
                     <label for="fname">Nome:</label>
@@ -106,12 +107,10 @@ c-74 13 -83 13 -98 -1 -14 -15 -14 -24 6 -103 59 -237 197 -411 417 -522 167
             </div>
             <br>
             <div class="form-row">
-                <input type="submit" value="Enviar">
+                <input type="submit" value="Enviar" onclick="sendEmail()">             
             </div>
             <br>
         </form>
-        <div id="mensagem-enviada" style="display: none;">Mensagem enviada!</div>
-        <br>
     </div>
 </div>
 
