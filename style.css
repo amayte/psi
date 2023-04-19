@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Fjalla+One&family=Nunito&display=swap");
+
+/* Background */
+body {
+  background: rgb(221,221,221);
+  background: -moz-linear-gradient(90deg, rgba(221,221,221,1) 0%, rgba(96,139,159,0.2497373949579832) 35%, rgba(112,172,140,0.43461134453781514) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(221,221,221,1) 0%, rgba(96,139,159,0.2497373949579832) 35%, rgba(112,172,140,0.43461134453781514) 100%);
+  background: linear-gradient(90deg, rgba(221,221,221,1) 0%, rgba(96,139,159,0.2497373949579832) 35%, rgba(112,172,140,0.43461134453781514) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#dddddd",endColorstr="#70ac8c",GradientType=1);
+  background-size: cover;
+  min-width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Container */
+.container {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  max-width: 90%;
+  width: 600px;
+  height: auto;
+  transition: height 0.6 ease-out;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tabs */
+.tab {
+  border: none;
+  background-color: none;
+  text-align: center;
+  float: none;
+  position: relative;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.tab a {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 18px;
+  color: #686868;
+  font-family: "Fjalla One", sans-serif;
+  text-decoration: none;
+}
+.one {
+  text-align: end;
+}
+.three {
+  text-align: start;
+}
+
+.tab a:hover {
+  opacity: 0.8;
+}
+
+/* Tab animation */
+.tab::before {
+  content: "";
+  height: 0.25rem;
+  width: 3rem;
+  margin-top: -5px;
+  margin-left: 0;
+  background: #568b79;
+  border: none;
+  border-radius: 8px;
+  transition: 0.3s ease-in-out;
+  position: absolute;
+  left: 29.5%;
+  top: 1.8rem;
+  transform: translateX(-50%);
+}
+
+/* Active tab animation */
+.tab.about::before {
+  left: 29.7%;
+}
+
+.tab.values::before {
+  left: 49.7%;
+}
+
+.tab.contact::before {
+  left: 70.5%;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    overflow-y: auto;
+  }
+  /* Tab animation for small screens */
+  .tab.about::before {
+    left: 27.5%;
+  }
+
+  .tab.values::before {
+    left: 49.5%;
+  }
+
+  .tab.contact::before {
+    left: 73.1%;
+  }
+}
+
+/* Tab content */
+.tabcontent {
+  display: none;
+  padding: 20px 40px;
+  border: none;
+  color: #505050;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  text-align: justify;
+  -webkit-hyphens: auto; /* for Safari */
+  hyphens: auto;
+  }
+
+/* First tab content */
+.nametitle {
+  font-weight: 800;
+  font-size: 2.1em;
+  font-family: "Dancing Script", cursive;
+}
+
+.lotus {
+  position: absolute;
+  width: 23%;
+  margin-top: 36px;
+  margin-left: 25px;
+  opacity: 0.1;
+  }
+
+.ig {
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+}
+
+.wp {
+  width: 35px;
+  height: 35px;
+  padding: 18px;
+}
+
+.icon:hover {
+  opacity: 0.8;
+}
+
+/* Second tab content */
+.val-container {
+  border: 2px solid rgba(248, 249, 210, 0.4);
+  background-color: rgba(248, 249, 210, 0.2);
+  border-radius: 6px;
+  padding: 20px;
+  text-align: left;
+  margin-bottom: 20px;
+  }
+  
+/* Third tab content */
+input[type="text"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+  outline: none;
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  color: #505050;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  outline: none;
+}
+
+input[type="submit"] {
+  background-color: #608b9f;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+}
+
+input[type="submit"]:hover {
+  opacity: 0.8;
+}
+
+.form-container {
+  padding: 10px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - less than 600px */
+@media screen and (max-width: 600px) {
+  .col-25,
+  .col-75,
+  input[type="submit"] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
